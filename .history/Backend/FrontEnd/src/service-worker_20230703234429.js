@@ -8,7 +8,6 @@ const urlsToCache = [
 ];
 
 // 서비스 워커 설치 이벤트
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -19,7 +18,6 @@ self.addEventListener('install', (event) => {
 });
 
 // 서비스 워커 활성화 이벤트
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -35,7 +33,6 @@ self.addEventListener('activate', (event) => {
 });
 
 // 서비스 워커 요청 이벤트
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)

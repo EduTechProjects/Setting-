@@ -35,7 +35,6 @@ self.addEventListener('activate', (event) => {
 });
 
 // 서비스 워커 요청 이벤트
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)

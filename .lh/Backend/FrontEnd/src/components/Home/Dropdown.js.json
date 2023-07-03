@@ -1,0 +1,82 @@
+{
+    "sourceFile": "Backend/FrontEnd/src/components/Home/Dropdown.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1688366510163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688366520279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,5 @@\n-import React from 'react'\n\\ No newline at end of file\n+import React from 'react';\n+\n+const Dropdown =() =>{\n+    \n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366525789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import React from 'react';\n+import { useState } from 'react';\n \n const Dropdown =() =>{\n-    \n+\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366532081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,7 @@\n import { useState } from 'react';\n \n const Dropdown =() =>{\n \n-}\n\\ No newline at end of file\n+}\n+\n+export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366677486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+import React from 'react';\n+import { useState } from 'react';\n+\n+const Dropdown =() =>{\n+\n+    const []\n+\n+}\n+\n+export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366690697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,17 +2,14 @@\n import { useState } from 'react';\n \n const Dropdown =() =>{\n \n-    const []\n+    const [open, isOpen] = useState(false);\n \n-}\n+    <ul>\n \n-export default Dropdown;\n-import React from 'react';\n-import { useState } from 'react';\n+        \n+    </ul>\n \n-const Dropdown =() =>{\n-\n }\n \n export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366698690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n const Dropdown =() =>{\n \n     const [open, isOpen] = useState(false);\n \n-    <ul>\n+    <ul onClick = {() => }>\n \n-        \n+\n     </ul>\n \n }\n \n"
+                },
+                {
+                    "date": 1688366703806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import React from 'react';\n+import { useState } from 'react';\n+\n+const Dropdown =() =>{\n+\n+    const [open, isOpen] = useState(false);\n+\n+    <ul onClick = {() => {isOpen(!)}}>\n+\n+\n+    </ul>\n+\n+}\n+\n+export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366709386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,27 +4,13 @@\n const Dropdown =() =>{\n \n     const [open, isOpen] = useState(false);\n \n-    <ul onClick = {() => {isOpen(!)}}>\n+    <ul onClick = {() => {isOpen(!open)}}>\n+        \n \n \n     </ul>\n \n }\n \n-export default Dropdown;\n-import React from 'react';\n-import { useState } from 'react';\n-\n-const Dropdown =() =>{\n-\n-    const [open, isOpen] = useState(false);\n-\n-    <ul onClick = {() => }>\n-\n-\n-    </ul>\n-\n-}\n-\n export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366754321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         \n \n-\n     </ul>\n \n }\n \n"
+                },
+                {
+                    "date": 1688366760710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n     const [open, isOpen] = useState(false);\n \n     <ul onClick = {() => {isOpen(!open)}}>\n-        \n+        언어 선택\n \n     </ul>\n \n }\n"
+                },
+                {
+                    "date": 1688366766836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from 'react';\n+import { useState } from 'react';\n+\n+const Dropdown =() =>{\n+\n+    const [open, isOpen] = useState(false);\n+\n+    <ul onClick = {() => {isOpen(!open)}}>\n+        언어 선택{\" \"}\n+        {vi}\n+\n+    </ul>\n+\n+}\n+\n+export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366775060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,26 +6,11 @@\n     const [open, isOpen] = useState(false);\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         언어 선택{\" \"}\n-        {vi}\n+        {open ? '^' }\n \n     </ul>\n \n }\n \n-export default Dropdown;\n-import React from 'react';\n-import { useState } from 'react';\n-\n-const Dropdown =() =>{\n-\n-    const [open, isOpen] = useState(false);\n-\n-    <ul onClick = {() => {isOpen(!open)}}>\n-        언어 선택\n-\n-    </ul>\n-\n-}\n-\n export default Dropdown;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688366786378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     const [open, isOpen] = useState(false);\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         언어 선택{\" \"}\n-        {open ? '^' }\n+        {open ? '^' : '⌄'}\n \n     </ul>\n \n }\n"
+                },
+                {
+                    "date": 1688366796272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         언어 선택{\" \"}\n         {open ? '^' : '⌄'}\n+        {view && }\n \n     </ul>\n \n }\n"
+                },
+                {
+                    "date": 1688366801570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         언어 선택{\" \"}\n         {open ? '^' : '⌄'}\n-        {view && }\n+        {view && <Dropdwo}\n \n     </ul>\n \n }\n"
+                },
+                {
+                    "date": 1688366808736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n     <ul onClick = {() => {isOpen(!open)}}>\n         언어 선택{\" \"}\n         {open ? '^' : '⌄'}\n-        {view && <Dropdownlist />}\n+        {open && <Dropdownlist />}\n \n     </ul>\n \n }\n"
+                }
+            ],
+            "date": 1688366510163,
+            "name": "Commit-0",
+            "content": "import React from 'react'"
+        }
+    ]
+}

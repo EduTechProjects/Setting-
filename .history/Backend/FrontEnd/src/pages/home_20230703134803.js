@@ -11,8 +11,6 @@ import { ReactComponent as Emoji } from "../assets/emoji.svg";
 import { ReactComponent as New } from "../assets/newIcon.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
-import Dropdown from "../components/Home/Dropdown";
-
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,7 +37,6 @@ const Home = () => {
           연습을 할 수 있어요.
         </P>
         <BtnContainer>
-          <Dropdown/>
           <Button type="2" text="음식" />
           <Button type="2" text="여행" />
           <Button type="2" text="가족" />

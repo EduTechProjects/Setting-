@@ -39,7 +39,7 @@ const Home = () => {
           연습을 할 수 있어요.
         </P>
         <BtnContainer>
-          <Dropdown/>
+          <Dropdownlist/>
           <Button type="2" text="음식" />
           <Button type="2" text="여행" />
           <Button type="2" text="가족" />

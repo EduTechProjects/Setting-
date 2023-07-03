@@ -11,7 +11,7 @@ import { ReactComponent as Emoji } from "../assets/emoji.svg";
 import { ReactComponent as New } from "../assets/newIcon.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
-import Dropdown from "../components/Home/Dropdown";
+import Dropdown from "../components/Home/";
 
 
 const Home = () => {

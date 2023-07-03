@@ -12,7 +12,7 @@ import { ReactComponent as New } from "../assets/newIcon.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "../components/Home/Dropdown";
-
+import Dropdownlist from "../components/Home/Dropdownlist";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Home = () => {
           연습을 할 수 있어요.
         </P>
         <BtnContainer>
-          <Dropdown/>
+          <Dropdownlist/>
           <Button type="2" text="음식" />
           <Button type="2" text="여행" />
           <Button type="2" text="가족" />

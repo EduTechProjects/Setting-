@@ -21,6 +21,27 @@ services:
     networks:
       - corp
 
+
+  flask_api:
+    container_name: flask_api
+    build:
+      context: ./flask-api  # flask API의 Dockerfile이 있는 경로를 지정해야 합니다.
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000  # flask API의 포트를 지정해야 합니다.
+    networks:
+      - corp
+
+  redis_server:
+    image: redis:latest
+    container_name: redis_server
+    ports:
+      - 13130:13130
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    networks:
+      - corp
+
 networks:
   corp:
     driver: bridge

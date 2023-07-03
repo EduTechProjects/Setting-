@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY redis.conf /usr/local/etc/redis/redis.conf
 
 #Redis port 
-EXPOSE 6379
+EXPOSE 13130
 
 #Redis 서버 구동
 CMD ["redis-server", "/usr/local/etc/redis/redis.conf"]

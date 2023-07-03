@@ -25,10 +25,10 @@ services:
   flask_api:
     container_name: flask_api
     build:
-      context: ./flask-api  # flask API의 Dockerfile이 있는 경로를 지정해야 합니다.
+      context: ./flask-api  # flask API의 Dockerfile이 있는 경로를 지정 부탁
       dockerfile: ./Dockerfile
     ports:
-      - 5000:5000  # flask API의 포트를 지정해야 합니다.
+      - 5000:5000  # flask API의 포트를 지정부탁
     networks:
       - corp
 

@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1688361866317,
@@ -16,6 +16,54 @@
                 {
                     "date": 1688361898011,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n const logger = require('./logger');\n const redis = require('redis');\n const RedisStore = require('connect-redis')(session);\n \n+const app = express();\n \n dotenv.config();\n //레디스 설정\n const redisClient = redis.createClient({\n@@ -37,10 +38,10 @@\n app.use('/home', homeRouter);\n app.use('/subject', subjectRouter);\n \n \n-const app = express()\n \n+\n //앱 서버 포트에 연결하기\n \n app.set('port', process.env.PORT || 3000);\n app.set('viw engine', 'html');\n"
+                },
+                {
+                    "date": 1688368206505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n })\n \n \n app.get('/', (req, res) =>{\n-    res.sendFile(path.join(__dirname, 'client'))\n+    res.sendFile(path.join(__dirname, 'Front'))\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688368211777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n })\n \n \n app.get('/', (req, res) =>{\n-    res.sendFile(path.join(__dirname, 'Front'))\n+    res.sendFile(path.join(__dirname, 'Frontend/'))\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688368232487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n })\n \n \n app.get('/', (req, res) =>{\n-    res.sendFile(path.join(__dirname, 'Frontend/'))\n+    res.sendFile(path.join(__dirname, 'Frontend/build/'))\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688368240901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n })\n \n \n app.get('/', (req, res) =>{\n-    res.sendFile(path.join(__dirname, 'Frontend/build/'))\n+    res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688368281593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n }\n app.use(session(sessionOption));\n \n //미들웨어 설정 \n-app.use(express.static(path.join(__dirname, 'public')));\n+\n app.use('/upload', express.static(path.join(__dirname, 'uploads')));\n app.use(express.json());\n app.use(express.urlencoded({extended : true}));\n app.use(cookieParser(process.env.COOKIE_SECRET));\n"
+                },
+                {
+                    "date": 1688368286906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,8 +98,9 @@\n     res.status(err.status || 500);\n     res.render('error'); \n })\n \n+app.use(express.static(path.join(__dirname, 'public')));\n \n app.get('/', (req, res) =>{\n     res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));\n })\n"
+                },
+                {
+                    "date": 1688368294411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n     res.status(err.status || 500);\n     res.render('error'); \n })\n \n-app.use(express.static(path.join(__dirname, 'public')));\n+app.use(express.static(path.join(__dirname, '')));\n \n app.get('/', (req, res) =>{\n     res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));\n })\n"
+                },
+                {
+                    "date": 1688368303476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n     res.status(err.status || 500);\n     res.render('error'); \n })\n \n-app.use(express.static(path.join(__dirname, '')));\n+app.use(express.static(path.join(__dirname, 'FrontEnd/build')));\n \n app.get('/', (req, res) =>{\n     res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));\n })\n"
+                },
+                {
+                    "date": 1688368314008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,10 +101,10 @@\n \n app.use(express.static(path.join(__dirname, 'FrontEnd/build')));\n \n app.get('/', (req, res) =>{\n-    res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));\n-})\n+    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n+});\n \n \n //포트 연결\n app.listen(app.get('port' ,()=>{\n"
+                },
+                {
+                    "date": 1688368416684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,9 +104,11 @@\n app.get('/', (req, res) =>{\n     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n });\n \n+app.get('*', function(req, res) )\n \n+\n //포트 연결\n app.listen(app.get('port' ,()=>{\n      console.log('${port} 포트입니다.')\n }))\n"
+                },
+                {
+                    "date": 1688368424755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -104,9 +104,11 @@\n app.get('/', (req, res) =>{\n     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n });\n \n-app.get('*', function(req, res) )\n+app.get('*', function(req, res) {\n+    res.sendFile(path.join(__))\n+})\n \n \n //포트 연결\n app.listen(app.get('port' ,()=>{\n"
+                },
+                {
+                    "date": 1688368432225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n });\n \n app.get('*', function(req, res) {\n-    res.sendFile(path.join(__))\n+    res.sendFile(path.join(__dirname, 'FrontEnd/build/'))\n })\n \n \n //포트 연결\n"
                 }
             ],
             "date": 1688361866317,

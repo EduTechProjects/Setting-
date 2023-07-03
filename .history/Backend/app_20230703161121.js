@@ -99,14 +99,9 @@ app.use((err, req, res, next)=>{
     res.render('error'); 
 })
 
-app.use(express.static(path.join(__dirname, 'FrontEnd/build')));
 
 app.get('/', (req, res) =>{
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
-});
-
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
+    res.sendFile(path.join(__dirname, 'Frontend/build/index.html'));
 })
 
 

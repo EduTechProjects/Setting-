@@ -60,7 +60,7 @@ if( process.env.NODE_ENV === 'production') {
 app.use(session(sessionOption));
 
 //미들웨어 설정 
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/upload', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
@@ -99,14 +99,9 @@ app.use((err, req, res, next)=>{
     res.render('error'); 
 })
 
-app.use(express.static(path.join(__dirname, 'FrontEnd/build')));
 
 app.get('/', (req, res) =>{
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
-});
-
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
+    res.sendFile(path.join(__dirname, 'Frontend/build/'))
 })
 
 

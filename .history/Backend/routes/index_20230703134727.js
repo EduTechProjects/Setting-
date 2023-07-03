@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 
 // 다른 모듈에서 가져온 라우터
 const speakRouter = require('./speakRouter');

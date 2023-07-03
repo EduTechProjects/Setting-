@@ -103,10 +103,6 @@ app.use(express.static(path.join(__dirname, 'FrontEnd/build')));
 
 app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
-});
-
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
 })
 
 

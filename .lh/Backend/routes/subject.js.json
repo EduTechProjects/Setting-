@@ -1,0 +1,22 @@
+{
+    "sourceFile": "Backend/routes/subject.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1688368675447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688368680812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n const express = require('express');\n const router = express.Router();\n-cost axios = require('axios')\n+const axios = require('axios');\n \n // :id 값으로 받아오는 것들 정의하기 \n \n router.get('/', (req, res,next) =>{\n"
+                }
+            ],
+            "date": 1688368675447,
+            "name": "Commit-0",
+            "content": "const express = require('express');\nconst router = express.Router();\ncost axios = require('axios')\n\n// :id 값으로 받아오는 것들 정의하기 \n\nrouter.get('/', (req, res,next) =>{\n    //subject 화면 렌더링\n    res.render('subject');\n})\n\n\n//POST/ subject 라우트에 대한 처리\nrouter.post('/', (req, res) =>{\n    const selectedTopic = req.body.topic;\n\n    if (selectedTopic === 'food') {\n        res.redirect('speak/food');\n    }\n    else if (selectedTopic === 'travel') {\n         res.redirect('/speak/travel');\n    }\n    else if (selectedTopic === 'family') {\n        res.redirect('/speak/family');\n    } else {\n        //선택할 주제가 없을 때의 에러 처리해주깅\n        res.status(400).json({message : '주제를 선택해주세요.'});\n    }\n})\n\nmodule.exports = router;"
+        }
+    ]
+}

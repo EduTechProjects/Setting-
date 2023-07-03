@@ -105,9 +105,7 @@ app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
 });
 
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));
-})
+app.get('*', function(req, res) )
 
 
 //포트 연결

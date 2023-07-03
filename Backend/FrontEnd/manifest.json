@@ -4,7 +4,7 @@
       "/index.html",
       "/main.js",
       "/styles.css",
-      "/assets/image.png"
+      "/assets/*.svg"
     ],
     "swSrc": "service-worker.js",
     "swDest": "service-worker.js"

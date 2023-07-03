@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Backend/FrontEnd/manifest.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1688396344451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1688396344451,
+            "name": "Commit-0",
+            "content": "{\n    \"version\": \"1.0.0\",\n    \"files\": [\n      \"/index.html\",\n      \"/main.js\",\n      \"/styles.css\",\n      \"/assets/image.png\"\n    ],\n    \"swSrc\": \"service-worker.js\",\n    \"swDest\": \"service-worker.js\"\n  }\n  "
+        }
+    ]
+}

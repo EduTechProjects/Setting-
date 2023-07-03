@@ -21,12 +21,10 @@ const logger = require('./logger');
 const redis = require('redis');
 const RedisStore = require('connect-redis')(session);
 
-
 const app = express();
 
 app.use(express.json());
-const cors = require('cors');
-app.use(cors());
+
 
 dotenv.config();
 //레디스 설정

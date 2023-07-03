@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1688361866317,
@@ -64,6 +64,18 @@
                 {
                     "date": 1688368432225,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -105,9 +105,9 @@\n     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n });\n \n app.get('*', function(req, res) {\n-    res.sendFile(path.join(__))\n+    res.sendFile(path.join(__dirname, 'FrontEnd/build/'))\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688369041494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,10 @@\n const RedisStore = require('connect-redis')(session);\n \n const app = express();\n \n+app.use(express.json())\n+\n dotenv.config();\n //레디스 설정\n const redisClient = redis.createClient({\n     url : 'redis ://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}',\n@@ -105,9 +107,9 @@\n     res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n });\n \n app.get('*', function(req, res) {\n-    res.sendFile(path.join(__dirname, 'FrontEnd/build/'))\n+    res.sendFile(path.join(__dirname, 'FrontEnd/build/index.html'));\n })\n \n \n //포트 연결\n"
+                },
+                {
+                    "date": 1688369059754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,11 @@\n const RedisStore = require('connect-redis')(session);\n \n const app = express();\n \n-app.use(express.json())\n+app.use(express.json());\n+const cors = require('cors');\n+app.use(cors)\n \n dotenv.config();\n //레디스 설정\n const redisClient = redis.createClient({\n"
+                },
+                {
+                    "date": 1688375191280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,13 +20,14 @@\n const logger = require('./logger');\n const redis = require('redis');\n const RedisStore = require('connect-redis')(session);\n \n+\n const app = express();\n \n app.use(express.json());\n const cors = require('cors');\n-app.use(cors)\n+app.use(cors());\n \n dotenv.config();\n //레디스 설정\n const redisClient = redis.createClient({\n"
                 }
             ],
             "date": 1688361866317,

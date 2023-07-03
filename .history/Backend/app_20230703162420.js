@@ -21,7 +21,6 @@ const logger = require('./logger');
 const redis = require('redis');
 const RedisStore = require('connect-redis')(session);
 
-
 const app = express();
 
 app.use(express.json());

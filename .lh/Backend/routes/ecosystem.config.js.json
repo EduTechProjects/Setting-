@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Backend/routes/ecosystem.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1688360599049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688360663424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   apps : [{\n     script: 'server.js',\n     watch: '.'\n   }, {\n-    script: './service-worker/',\n+    script: '/Users/root1/eduproject/Backend/routes/server.js',\n     watch: ['./service-worker']\n   }],\n \n   deploy : {\n"
+                },
+                {
+                    "date": 1688360699916,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n   apps : [{\n     script: 'server.js',\n     watch: '.'\n   }, {\n-    script: '/Users/root1/eduproject/Backend/routes/server.js',\n+    script: '/Users/root1/eduproject/Backend/server.js',\n     watch: ['./service-worker']\n   }],\n \n   deploy : {\n"
+                }
+            ],
+            "date": 1688360599049,
+            "name": "Commit-0",
+            "content": "module.exports = {\n  apps : [{\n    script: 'server.js',\n    watch: '.'\n  }, {\n    script: './service-worker/',\n    watch: ['./service-worker']\n  }],\n\n  deploy : {\n    production : {\n      user : 'SSH_USERNAME',\n      host : 'SSH_HOSTMACHINE',\n      ref  : 'origin/master',\n      repo : 'GIT_REPOSITORY',\n      path : 'DESTINATION_PATH',\n      'pre-deploy-local': '',\n      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',\n      'pre-setup': ''\n    }\n  }\n};\n"
+        }
+    ]
+}

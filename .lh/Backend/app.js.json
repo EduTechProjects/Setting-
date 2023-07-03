@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Backend/app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1688361866317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688361892899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n app.use('/home', homeRouter);\n app.use('/subject', subjectRouter);\n \n \n-const app = express();\n+const app = express()\n \n //앱 서버 포트에 연결하기\n \n app.set('port', process.env.PORT || 3000);\n"
+                },
+                {
+                    "date": 1688361898011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n const logger = require('./logger');\n const redis = require('redis');\n const RedisStore = require('connect-redis')(session);\n \n+const app = express();\n \n dotenv.config();\n //레디스 설정\n const redisClient = redis.createClient({\n@@ -37,10 +38,10 @@\n app.use('/home', homeRouter);\n app.use('/subject', subjectRouter);\n \n \n-const app = express()\n \n+\n //앱 서버 포트에 연결하기\n \n app.set('port', process.env.PORT || 3000);\n app.set('viw engine', 'html');\n"
+                }
+            ],
+            "date": 1688361866317,
+            "name": "Commit-0",
+            "content": "const express = require('express');\nconst bodyParser =require('body-parser');\nconst cookieParser = require('cookie-parser');\nconst path = require('path');\nconst session = require('express-session');\nconst qs = require('qs');\nconst mongoose = require('mongoose');\nconst morgan = require('morgan');\nconst multer = require('multer');\nconst dotenv = require('dotenv');\nconst connect = require('/schemas');\nconst indexRouter = require('./routes/index');\nconst speakRouter = require('./routes/speak');\nconst feedbackRouter = require('./routes/feedback');\nconst homeRouter = require('./routes/home');\nconst subjectRouter = require('./routes/subject');\nconst hpp = require('hpp');\nconst helmet = require('helmet');\nconst csurf = require('csurf');\nconst logger = require('./logger');\nconst redis = require('redis');\nconst RedisStore = require('connect-redis')(session);\n\n\ndotenv.config();\n//레디스 설정\nconst redisClient = redis.createClient({\n    url : 'redis ://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}',\n    password : process.env.REDIS_PASSWORD,\n})\n\n// Router\n\napp.use('/', indexRouter);\napp.use('/speak', speakRouter);\napp.use('/feedback', feedbackRouter);\napp.use('/home', homeRouter);\napp.use('/subject', subjectRouter);\n\n\nconst app = express();\n\n//앱 서버 포트에 연결하기\n\napp.set('port', process.env.PORT || 3000);\napp.set('viw engine', 'html');\n\n\n\nif( process.env.NODE_ENV === 'production') {\n    sessionOption.proxy = true;\n    app.enable('trust proxy');\n    app.use(morgan('dombined'));\n    app.use(helmet({contentSecurityPolicy : false}));\n    app.use(hpp());\n} else {\n    app.use(morgan('div'));\n}\napp.use(session(sessionOption));\n\n//미들웨어 설정 \napp.use(express.static(path.join(__dirname, 'public')));\napp.use('/upload', express.static(path.join(__dirname, 'uploads')));\napp.use(express.json());\napp.use(express.urlencoded({extended : true}));\napp.use(cookieParser(process.env.COOKIE_SECRET));\nconst sessionOption = {\n    resave : false,\n    saveUninitialized : false,\n    secret : process.env.COOKIE_SECRET,\n    cookie : {\n        httpOnly : true,\n        secure : false,\n    }, \n    store : new RedisStore({client : redisClient}),\n}\n\n//body-parser 미들웨어 설정\napp.use(bodyParser.urlencoded({extended : false}));\napp.use(bodyParser.json());\n\n\n//404 에러 처리 미들웨어\napp.use((req,res,next) =>{\n    const error = new Error('${req.method} ${req.url} 라우터가 없음🧐');\n    error.status = 404;\n    logger.info('왜않돼?');\n    logger.error(error.message);\n    next(error);\n\n})\n\n//500 에러 미들웨어 정의\napp.use((err, req, res, next)=>{\n    res.locals.message = err.message;\n    res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};\n    res.status(err.status || 500);\n    res.render('error'); \n})\n\n\napp.get('/', (req, res) =>{\n    res.sendFile(path.join(__dirname, 'client'))\n})\n\n\n//포트 연결\napp.listen(app.get('port' ,()=>{\n     console.log('${port} 포트입니다.')\n}))\n\n//몽구스 연결\nconst connect =()=>{\n    if (process.env.NODE_ENV !== 'production'){ //개발 모드일때는 debug모드를 사용한다.\n        mongoose.set('debug', true);\n    }\n    mongoose.connect('mongodb://url', {\n       dbName : 'nodejs',\n       useNewUrlParser : true,\n       useCreateIndex : true,\n    } , (error) =>{\n       if (error) {\n          console.log('몽고디비 연결 에러', error);\n       } else {\n          console.log('몽고디비 연결 성공');\n       }\n    });\n };\n \n\n mongoose.connection.on('error' ,(error)=>{\n    console.error('몽고디비 연결 에러', error);\n })\n mongoose.connection.on('disconnected' ,()=>{\n    conosle.error('몽고디비 연결이 끊겼슘니당. 연결 재시도 하겠습니다.');\n    connect();\n })\n module.exports = connect;\n \n\n\n\n\n"
+        }
+    ]
+}

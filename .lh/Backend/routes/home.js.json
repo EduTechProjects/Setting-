@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Backend/routes/home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1688362329687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1688362329687,
+            "name": "Commit-0",
+            "content": "const express = require('express');\nconst router = express.Router();\n\n\nrouter.get('/', (req,res) =>{\n    //홈화면 렌더링\n    res.render('home');\n})\n\nmodule.exports = router;"
+        }
+    ]
+}

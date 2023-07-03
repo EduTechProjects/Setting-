@@ -1,0 +1,26 @@
+{
+    "sourceFile": "Backend/service-worker.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1688361345059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688361504298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,35 @@\n+// service-worker.js\n+\n+// 캐시할 파일 리스트\n+const cacheFiles = [\n+    '/',\n+    '/index.html',\n+    '/styles.css',\n+    '/script.js',\n+    \n+  ];\n+  \n+  // 서비스 워커 설치 이벤트\n+  self.addEventListener('install', event => {\n+    console.log('서비스 워커 설치됨');\n+    event.waitUntil(\n+      caches.open('my-cache').then(cache => {\n+        return cache.addAll(cacheFiles);\n+      })\n+    );\n+  });\n+  \n+  // 서비스 워커 활성화 이벤트\n+  self.addEventListener('activate', event => {\n+    console.log('서비스 워커 활성화됨');\n+  });\n+  \n+  // 요청에 대한 응답 가져오기\n+  self.addEventListener('fetch', event => {\n+    event.respondWith(\n+      caches.match(event.request).then(response => {\n+        return response || fetch(event.request);\n+      })\n+    );\n+  });\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688361515861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n const cacheFiles = [\n     '/',\n     '/index.html',\n     '/styles.css',\n-    '/script.js',\n+    '/server.js',\n     \n   ];\n   \n   // 서비스 워커 설치 이벤트\n@@ -31,40 +31,5 @@\n         return response || fetch(event.request);\n       })\n     );\n   });\n-  \n-// service-worker.js\n-\n-// 캐시할 파일 리스트\n-const cacheFiles = [\n-    '/',\n-    '/index.html',\n-    '/styles.css',\n-    '/script.js',\n-    // 여기에 캐시할 파일들의 경로를 추가합니다.\n-  ];\n-  \n-  // 서비스 워커 설치 이벤트\n-  self.addEventListener('install', event => {\n-    console.log('서비스 워커 설치됨');\n-    event.waitUntil(\n-      caches.open('my-cache').then(cache => {\n-        return cache.addAll(cacheFiles);\n-      })\n-    );\n-  });\n-  \n-  // 서비스 워커 활성화 이벤트\n-  self.addEventListener('activate', event => {\n-    console.log('서비스 워커 활성화됨');\n-  });\n-  \n-  // 요청에 대한 응답 가져오기\n-  self.addEventListener('fetch', event => {\n-    event.respondWith(\n-      caches.match(event.request).then(response => {\n-        return response || fetch(event.request);\n-      })\n-    );\n-  });\n   \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1688361345059,
+            "name": "Commit-0",
+            "content": "// service-worker.js\n\n// 캐시할 파일 리스트\nconst cacheFiles = [\n    '/',\n    '/index.html',\n    '/styles.css',\n    '/script.js',\n    // 여기에 캐시할 파일들의 경로를 추가합니다.\n  ];\n  \n  // 서비스 워커 설치 이벤트\n  self.addEventListener('install', event => {\n    console.log('서비스 워커 설치됨');\n    event.waitUntil(\n      caches.open('my-cache').then(cache => {\n        return cache.addAll(cacheFiles);\n      })\n    );\n  });\n  \n  // 서비스 워커 활성화 이벤트\n  self.addEventListener('activate', event => {\n    console.log('서비스 워커 활성화됨');\n  });\n  \n  // 요청에 대한 응답 가져오기\n  self.addEventListener('fetch', event => {\n    event.respondWith(\n      caches.match(event.request).then(response => {\n        return response || fetch(event.request);\n      })\n    );\n  });\n  "
+        }
+    ]
+}

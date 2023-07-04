@@ -49,8 +49,18 @@ app.use('/subject', subjectRouter);
 //앱 서버 포트에 연결하기
 
 app.set('port', process.env.PORT || 3000);
-app.set('viw engine', 'html');
+app.set('view engine', 'html');
 
+const sessionOption = {
+    resave : false,
+    saveUninitialized : false,
+    secret : process.env.COOKIE_SECRET,
+    cookie : {
+        httpOnly : true,
+        secure : false,
+    }, 
+    store : new RedisStore({client : redisClient}),
+}
 
 
 if( process.env.NODE_ENV === 'production') {
@@ -70,16 +80,7 @@ app.use('/upload', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(cookieParser(process.env.COOKIE_SECRET));
-const sessionOption = {
-    resave : false,
-    saveUninitialized : false,
-    secret : process.env.COOKIE_SECRET,
-    cookie : {
-        httpOnly : true,
-        secure : false,
-    }, 
-    store : new RedisStore({client : redisClient}),
-}
+
 
 //body-parser 미들웨어 설정
 app.use(bodyParser.urlencoded({extended : false}));
@@ -116,16 +117,17 @@ app.get('*', function(req, res) {
 
 
 //포트 연결
-app.listen(app.get('port' ,()=>{
-     console.log('${port} 포트입니다.')
-}))
+app.listen(app.get('port'), () => {
+    console.log(`${app.get('port')} 포트입니다.`);
+});
+
 
 //몽구스 연결
 const connect =()=>{
     if (process.env.NODE_ENV !== 'production'){ //개발 모드일때는 debug모드를 사용한다.
         mongoose.set('debug', true);
     }
-    mongoose.connect('mongodb://url', {
+    mongoose.connect('mongodb://root:nodejs@localhost:27017/?authMechanism=DEFAULT', {
        dbName : 'nodejs',
        useNewUrlParser : true,
        useCreateIndex : true,

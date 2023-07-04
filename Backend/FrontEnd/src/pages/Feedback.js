@@ -12,10 +12,13 @@ const Feedback = () => {
   // 결과 GET
   const GetResultAPI = async () => {
     setLoading(true);
-
-    const response = await axios.get(""); // url 넣기
+    
+    try{
+    const response = await axios.get("http://localhost:5000/feedback"); // url 넣기
     console.log(response.data, response.status);
-    setData(response.data);
+    setData(response.data);} catch(error) {
+      console.error("피드백 데이터를 가져오는 중에 오류가 발생했습니다.");
+    }
 
     setLoading(false);
   };
@@ -34,9 +37,10 @@ const Feedback = () => {
           <ToggleContainer>
             {data.map((el, i) => (
               <ToggleBox
+                key= {i}
                 index={`${i + 1}`}
-                answer={el.answer}
-                feedback={el.feedback}
+                answer={el.transcription}
+                feedback={el.fixed}
               />
             ))}
           </ToggleContainer>

@@ -103,9 +103,11 @@ const Speak = () => {
 
       //서버로 formdata 전송
       axios
-        .post("/upload-audio", formData)
+        .post("http://localhost:5000/transcribe", formData)
         .then((response) => {
           console.log("업로드가 성공적으로 진행되었습니다!");
+          // 서버에서 응답받은 텍스트를 처리하는 코드 작성
+          
         })
         .catch((error) => {
           console.error("업로드 과정 중 오류가 발생했습니다.", error);

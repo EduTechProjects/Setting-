@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0",
+    "files": [
+      "/index.html",
+      "/main.js",
+      "/styles.css",
+      "/assets/*.png"
+    ],
+    "swSrc": "service-worker.js",
+    "swDest": "service-worker.js"
+  }
+  

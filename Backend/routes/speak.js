@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-// POST /upload-audio 경로에 대한 처리
-router.post("/upload-audio", upload.single("audio"), async (req, res) => {
+// POST /transcribe 경로에 대한 처리
+router.post("http://localhost:5000/transcribe", upload.single("audio"), async (req, res) => {
     try {
       // 파일 업로드가 완료되면 speak 모델을 사용하여 음성 처리를 진행
       const filePath = req.file.path; // 업로드된 파일의 경로
@@ -43,7 +43,7 @@ router.post("/upload-audio", upload.single("audio"), async (req, res) => {
             const formData = new FormData();
             formData.append('audio', audioFile.buffer, 'recording.wav');
 
-            const response = await axios.post('/upload-audio', formData, {
+            const response = await axios.post('http://localhost:5000/transcribe', formData, {
                 headers : formData.getHeaders(),
             });
 

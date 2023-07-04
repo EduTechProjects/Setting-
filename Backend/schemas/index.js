@@ -4,6 +4,7 @@ const speak = require('./speak');
 const feedback = require('./feedback');
 const speakSchema = require('./speak');
 const feedbackSchema = require('./feedback');
+const config = require('../config/config.json')
 
 mongoose.connect(config.database, {
     useNewUrlParser : true,
@@ -11,8 +12,7 @@ mongoose.connect(config.database, {
     useCreteIndex : true,
 });
 
-const speak = mongoose.model('speak', speakSchema);
-const feedback = mongoose.model('feedback', feedback);
+
 
 module.exports = {
     speak,

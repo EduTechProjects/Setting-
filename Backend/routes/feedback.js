@@ -1,10 +1,9 @@
 const express = require('express');
 const feedback = require('../schemas/feedback');
 const speak = require('../schemas/speak');
-const feedback = require('../schemas/feedback');
 const axios = require('axios');
 const {spawn} = require('child_process');
-
+const router = express.Router();
 //POST /feedback 경로 처리
 router.post('/feedback', async(req,res) =>{
     try {

@@ -3,10 +3,10 @@ const router = express.Router();
 const axios = require('axios');
 
 // 다른 모듈에서 가져온 라우터
-const speakRouter = require('./speakRouter');
-const homeRouter = require('./homeRouter');
-const subjectRouter = require('./subjectRouter');
-const feedbackRouter = require('./feedbackRouter');
+const speakRouter = require('./speak');
+const homeRouter = require('./home');
+const subjectRouter = require('./subject');
+const feedbackRouter = require('./feedback');
 
 // Speak.js 라우터
 router.use('/speak', speakRouter);

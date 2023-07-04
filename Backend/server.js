@@ -1,5 +1,7 @@
-const app = require('./app');
+const app = require('./app.js');
 
-app.listen(app.get('port'), () => {
-  console.log(app.get('port'), '번 포트에서 대기중');
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`${port}번 포트에서 대기중`);
 });

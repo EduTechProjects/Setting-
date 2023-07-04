@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 21,
+            "activePatchIndex": 25,
             "patches": [
                 {
                     "date": 1688395466282,
@@ -92,6 +92,22 @@
                 {
                     "date": 1688397405146,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n       })\n   );\n });\n \n+// eslint-disable-next-line no-restricted-globals\n self.addEventListener('activate', (event) => {\n   event.waitUntil(\n     caches.keys().then((cacheNames) => {\n       return Promise.all(\n@@ -30,8 +31,9 @@\n     })\n   );\n });\n \n+// eslint-disable-next-line no-restricted-globals\n self.addEventListener('fetch', (event) => {\n   event.respondWith(\n     caches.match(event.request)\n       .then((response) => {\n"
+                },
+                {
+                    "date": 1688476514075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   // 추가 리소스들\n ];\n \n // eslint-disable-next-line no-restricted-globals\n-self.addEventListener('install', (event) => {\n+this.addEventListener('install', (event) => {\n   event.waitUntil(\n     caches.open(CACHE_NAME)\n       .then((cache) => {\n         return cache.addAll(urlsToCache);\n@@ -44,6 +44,7 @@\n       })\n   );\n });\n \n+// eslint-disable-next-line no-restricted-globals\n precacheAndRoute(self.__WB_MANIFEST);\n \n"
+                },
+                {
+                    "date": 1688476522105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n   );\n });\n \n // eslint-disable-next-line no-restricted-globals\n-self.addEventListener('activate', (event) => {\n+this.addEventListener('activate', (event) => {\n   event.waitUntil(\n     caches.keys().then((cacheNames) => {\n       return Promise.all(\n         cacheNames.filter((cacheName) => {\n"
+                },
+                {
+                    "date": 1688476531615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,50 @@\n+import { precacheAndRoute } from 'workbox-precaching';\n+\n+const CACHE_NAME = 'my-cache';\n+const urlsToCache = [\n+  '/',\n+  '/index.html',\n+  // 추가 리소스들\n+];\n+\n+// eslint-disable-next-line no-restricted-globals\n+this.addEventListener('install', (event) => {\n+  event.waitUntil(\n+    caches.open(CACHE_NAME)\n+      .then((cache) => {\n+        return cache.addAll(urlsToCache);\n+      })\n+  );\n+});\n+\n+// eslint-disable-next-line no-restricted-globals\n+this.addEventListener('activate', (event) => {\n+  event.waitUntil(\n+    caches.keys().then((cacheNames) => {\n+      return Promise.all(\n+        cacheNames.filter((cacheName) => {\n+          return cacheName !== CACHE_NAME;\n+        }).map((cacheName) => {\n+          return caches.delete(cacheName);\n+        })\n+      );\n+    })\n+  );\n+});\n+\n+// eslint-disable-next-line no-restricted-globals\n+this.addEventListener('fetch', (event) => {\n+  event.respondWith(\n+    caches.match(event.request)\n+      .then((response) => {\n+        if (response) {\n+          return response;\n+        }\n+        return fetch(event.request);\n+      })\n+  );\n+});\n+\n+// eslint-disable-next-line no-restricted-globals\n+precacheAndRoute(self.__WB_MANIFEST);\n+\n"
+                },
+                {
+                    "date": 1688476539659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,56 +45,6 @@\n   );\n });\n \n // eslint-disable-next-line no-restricted-globals\n-precacheAndRoute(self.__WB_MANIFEST);\n+precacheAndRoute(this.__WB_MANIFEST);\n \n-import { precacheAndRoute } from 'workbox-precaching';\n-\n-const CACHE_NAME = 'my-cache';\n-const urlsToCache = [\n-  '/',\n-  '/index.html',\n-  // 추가 리소스들\n-];\n-\n-// eslint-disable-next-line no-restricted-globals\n-this.addEventListener('install', (event) => {\n-  event.waitUntil(\n-    caches.open(CACHE_NAME)\n-      .then((cache) => {\n-        return cache.addAll(urlsToCache);\n-      })\n-  );\n-});\n-\n-// eslint-disable-next-line no-restricted-globals\n-this.addEventListener('activate', (event) => {\n-  event.waitUntil(\n-    caches.keys().then((cacheNames) => {\n-      return Promise.all(\n-        cacheNames.filter((cacheName) => {\n-          return cacheName !== CACHE_NAME;\n-        }).map((cacheName) => {\n-          return caches.delete(cacheName);\n-        })\n-      );\n-    })\n-  );\n-});\n-\n-// eslint-disable-next-line no-restricted-globals\n-self.addEventListener('fetch', (event) => {\n-  event.respondWith(\n-    caches.match(event.request)\n-      .then((response) => {\n-        if (response) {\n-          return response;\n-        }\n-        return fetch(event.request);\n-      })\n-  );\n-});\n-\n-// eslint-disable-next-line no-restricted-globals\n-precacheAndRoute(self.__WB_MANIFEST);\n-\n"
                 }
             ],
             "date": 1688395466282,

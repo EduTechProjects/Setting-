@@ -1,0 +1,54 @@
+{
+    "sourceFile": "Backend/config/config.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1688471195372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688471207950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"mysql\"\n   },\n-  //development.password와 development.database를 현재 MySQL 커넥션과 일치하게 수정하기\n+  //development.password와 development.database를 같게 해야함\n   \"test\": {\n     \"username\": \"root\",\n     \"password\": null,\n     \"database\": \"database_test\",\n"
+                },
+                {
+                    "date": 1688471215434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     \"username\": \"root\",\n     \"password\": null,  //root의 비밀번호\n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n-    \"dialect\": \"mysql\"\n+    \"dialect\": \"nosql\"\n   },\n   //development.password와 development.database를 같게 해야함\n   \"test\": {\n     \"username\": \"root\",\n"
+                },
+                {
+                    "date": 1688471223621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n \n- \n+ {\n   \"development\": {\n     \"username\": \"root\",\n     \"password\": null,  //root의 비밀번호\n     \"database\": \"nodejs\",\n"
+                },
+                {
+                    "date": 1688471230308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \n  {\n   \"development\": {\n     \"username\": \"root\",\n-    \"password\": null,  //root의 비밀번호\n+    \"password\": null,  \n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"nosql\"\n   },\n"
+                },
+                {
+                    "date": 1688471237022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,15 +6,15 @@\n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"nosql\"\n   },\n-  //development.password와 development.database를 같게 해야함\n+\n   \"test\": {\n     \"username\": \"root\",\n     \"password\": null,\n     \"database\": \"database_test\",\n     \"host\": \"127.0.0.1\",\n-    \"dialect\": \"mysql\"\n+    \"dialect\": \"nosql\"\n   },\n   \"production\": {\n     \"username\": \"root\",\n     \"password\": null,\n"
+                },
+                {
+                    "date": 1688471242470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+\n+ {\n+  \"development\": {\n+    \"username\": \"root\",\n+    \"password\": null,  \n+    \"database\": \"nodejs\",\n+    \"host\": \"127.0.0.1\",\n+    \"dialect\": \"nosql\"\n+  },\n+\n+  \"test\": {\n+    \"username\": \"root\",\n+    \"password\": null,\n+    \"database\": \"nodejs\",\n+    \"host\": \"127.0.0.1\",\n+    \"dialect\": \"nosql\"\n+  },\n+  \"production\": {\n+    \"username\": \"root\",\n+    \"password\": null,\n+    \"database\": \"database_production\",\n+    \"host\": \"127.0.0.1\",\n+    \"dialect\": \"mysql\"\n+  }\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688471255049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \n  {\n   \"development\": {\n     \"username\": \"root\",\n-    \"password\": null,  \n+    \"password\": \"nodejs\",  \n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"nosql\"\n   },\n@@ -21,30 +21,5 @@\n     \"database\": \"database_production\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"mysql\"\n   }\n-}\n-\n- {\n-  \"development\": {\n-    \"username\": \"root\",\n-    \"password\": null,  \n-    \"database\": \"nodejs\",\n-    \"host\": \"127.0.0.1\",\n-    \"dialect\": \"nosql\"\n-  },\n-\n-  \"test\": {\n-    \"username\": \"root\",\n-    \"password\": null,\n-    \"database\": \"database_test\",\n-    \"host\": \"127.0.0.1\",\n-    \"dialect\": \"nosql\"\n-  },\n-  \"production\": {\n-    \"username\": \"root\",\n-    \"password\": null,\n-    \"database\": \"database_production\",\n-    \"host\": \"127.0.0.1\",\n-    \"dialect\": \"mysql\"\n-  }\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688471261471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   },\n \n   \"test\": {\n     \"username\": \"root\",\n-    \"password\": null,\n+    \"password\": \"nodejs\",\n     \"database\": \"nodejs\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"nosql\"\n   },\n"
+                },
+                {
+                    "date": 1688471271379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     \"dialect\": \"nosql\"\n   },\n   \"production\": {\n     \"username\": \"root\",\n-    \"password\": null,\n+    \"password\": \"nodejs\",\n     \"database\": \"database_production\",\n     \"host\": \"127.0.0.1\",\n     \"dialect\": \"mysql\"\n   }\n"
+                }
+            ],
+            "date": 1688471195372,
+            "name": "Commit-0",
+            "content": "\n \n  \"development\": {\n    \"username\": \"root\",\n    \"password\": null,  //root의 비밀번호\n    \"database\": \"nodejs\",\n    \"host\": \"127.0.0.1\",\n    \"dialect\": \"mysql\"\n  },\n  //development.password와 development.database를 현재 MySQL 커넥션과 일치하게 수정하기\n  \"test\": {\n    \"username\": \"root\",\n    \"password\": null,\n    \"database\": \"database_test\",\n    \"host\": \"127.0.0.1\",\n    \"dialect\": \"mysql\"\n  },\n  \"production\": {\n    \"username\": \"root\",\n    \"password\": null,\n    \"database\": \"database_production\",\n    \"host\": \"127.0.0.1\",\n    \"dialect\": \"mysql\"\n  }\n}"
+        }
+    ]
+}

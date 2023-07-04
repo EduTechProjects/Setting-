@@ -1,0 +1,34 @@
+{
+    "sourceFile": "Backend/schemas/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1688470985686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688471317654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n const speak = require('./speak');\n const feedback = require('./feedback');\n const speakSchema = require('./speak');\n const feedbackSchema = require('./feedback');\n+const config = \n \n mongoose.connect(config.database, {\n     useNewUrlParser : true,\n     useUnifiedTopology : true,\n"
+                },
+                {
+                    "date": 1688471325716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const speak = require('./speak');\n const feedback = require('./feedback');\n const speakSchema = require('./speak');\n const feedbackSchema = require('./feedback');\n-const config = \n+const config = requrie('../config/config')\n \n mongoose.connect(config.database, {\n     useNewUrlParser : true,\n     useUnifiedTopology : true,\n"
+                },
+                {
+                    "date": 1688471334750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const speak = require('./speak');\n const feedback = require('./feedback');\n const speakSchema = require('./speak');\n const feedbackSchema = require('./feedback');\n-const config = requrie('../config/config')\n+const config = require('../config/config')\n \n mongoose.connect(config.database, {\n     useNewUrlParser : true,\n     useUnifiedTopology : true,\n"
+                },
+                {
+                    "date": 1688471351676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n const speak = require('./speak');\n const feedback = require('./feedback');\n const speakSchema = require('./speak');\n const feedbackSchema = require('./feedback');\n-const config = require('../config/config')\n+const config = require('../')\n \n mongoose.connect(config.database, {\n     useNewUrlParser : true,\n     useUnifiedTopology : true,\n"
+                }
+            ],
+            "date": 1688470985686,
+            "name": "Commit-0",
+            "content": "const mongoose = require('mongoose');\nconst env = process.env.NODE_ENC || 'development';\nconst speak = require('./speak');\nconst feedback = require('./feedback');\nconst speakSchema = require('./speak');\nconst feedbackSchema = require('./feedback');\n\nmongoose.connect(config.database, {\n    useNewUrlParser : true,\n    useUnifiedTopology : true,\n    useCreteIndex : true,\n});\n\n\n\nmodule.exports = {\n    speak,\n    feedback,\n}\n\n\n\n\nconst db = {};\n\n"
+        }
+    ]
+}

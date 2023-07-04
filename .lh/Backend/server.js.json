@@ -1,0 +1,38 @@
+{
+    "sourceFile": "Backend/server.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1688475309317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688475315689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const app = \n+const app = require('./app');\n \n app.listen(app.get('port'), () => {\n   console.log(app.get('port'), '번 포트에서 대기중');\n });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1688475390613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const app = require('./app');\n+const port = process.env.PORT || 3000;\n \n-app.listen(app.get('port'), () => {\n-  console.log(app.get('port'), '번 포트에서 대기중');\n\\ No newline at end of file\n-});\n+app.listen(port, () => {\n+  console.log(`${port}번 포트에서 대기중`);\n+});\n"
+                },
+                {
+                    "date": 1688475398325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+\n+\n const port = process.env.PORT || 3000;\n \n app.listen(port, () => {\n   console.log(`${port}번 포트에서 대기중`);\n"
+                },
+                {
+                    "date": 1688475404186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+const app = require('./app')\n \n-\n const port = process.env.PORT || 3000;\n \n app.listen(port, () => {\n   console.log(`${port}번 포트에서 대기중`);\n"
+                },
+                {
+                    "date": 1688475451108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-const app = require('./app')\n+const app = require('./app.js');\n \n const port = process.env.PORT || 3000;\n \n app.listen(port, () => {\n"
+                }
+            ],
+            "date": 1688475309317,
+            "name": "Commit-0",
+            "content": "const app = \n\napp.listen(app.get('port'), () => {\n  console.log(app.get('port'), '번 포트에서 대기중');\n});"
+        }
+    ]
+}

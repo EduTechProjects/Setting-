@@ -1,0 +1,22 @@
+{
+    "sourceFile": "redis/Dockerfile",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1688463568882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1688463579913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n COPY redis.conf /usr/local/etc/redis/redis.conf\n \n #Redis port \n #EXPOSE 13130\n-\n+EXPOSE 6379\n #Redis 서버 구동\n CMD [\"redis-server\", \"/usr/local/etc/redis/redis.conf\"]\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1688463568882,
+            "name": "Commit-0",
+            "content": "#Redis Base Image\nFROM redis:latest\n\n#Set the working directory in the container\nWORKDIR /usr/src/app\n\n#redis.conf 파일을 컨테이너에 복사하기\nCOPY redis.conf /usr/local/etc/redis/redis.conf\n\n#Redis port \n#EXPOSE 13130\n\n#Redis 서버 구동\nCMD [\"redis-server\", \"/usr/local/etc/redis/redis.conf\"]"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "Backend/logger.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1688463662473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1688463662473,
+            "name": "Commit-0",
+            "content": "const {createLogger, format, transports} = require('winston');\n\nconst logger = createLogger({\n    level : 'info',\n    format : format.json(),\n    transports : [\n        new transports.File({filename : 'combined.log'}),\n        new transports.File({filenae : 'error.log', level : 'error'}),\n    ],\n});\n\nconsole.log\nconsole.error\nconsole.warn\n\nif (process.env.NODE_ENV !=='production') {\n    logger.add(new transports.Console({format : format.simple()}));\n}\n\nmodule.exports = logger;"
+        }
+    ]
+}
